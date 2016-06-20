@@ -1,48 +1,56 @@
 $(function(){
 
-	var audio1 = new Audio('sounds/1.mp3'),
-			audio2 = new Audio('sounds/2.mp3'),
-			audio3 = new Audio('sounds/3.mp3'),
-			audio4 = new Audio('sounds/4.mp3'),
-			audio5 = new Audio('sounds/5.mp3'),
-			audio6 = new Audio('sounds/6.mp3'),
-			audio7 = new Audio('sounds/7.mp3'),
-			audio8 = new Audio('sounds/8.mp3'),
-			audio9 = new Audio('sounds/9.mp3'),
-			audio0 = new Audio('sounds/0.mp3'),
-			audioA = new Audio('sounds/a.mp3'),
-			audioB = new Audio('sounds/b.mp3'),
-			audioC = new Audio('sounds/c.mp3'),
-			audioD = new Audio('sounds/d.mp3'),
-			audioE = new Audio('sounds/e.mp3'),
-			audioF = new Audio('sounds/f.mp3'),
-			audioG = new Audio('sounds/g.mp3'),
-			audioH = new Audio('sounds/h.mp3'),
-			audioI = new Audio('sounds/i.mp3'),
-			audioJ = new Audio('sounds/j.mp3'),
-			audioK = new Audio('sounds/k.mp3'),
-			audioL = new Audio('sounds/l.mp3'),
-			audioM = new Audio('sounds/m.mp3'),
-			audioN = new Audio('sounds/n.mp3'),
-			audioO = new Audio('sounds/o.mp3'),
-			audioP = new Audio('sounds/p.mp3'),
-			audioQ = new Audio('sounds/q.mp3'),
-			audioR = new Audio('sounds/r.mp3'),
-			audioS = new Audio('sounds/s.mp3'),
-			audioT = new Audio('sounds/t.mp3'),
-			audioU = new Audio('sounds/u.mp3'),
-			audioV = new Audio('sounds/v.mp3'),
-			audioW = new Audio('sounds/w.mp3'),
-			audioX = new Audio('sounds/x.mp3'),
-			audioY = new Audio('sounds/y.mp3'),
-			audioZ = new Audio('sounds/z.mp3'),
+	var audio1 = new Audio('sounds/m4a/1.m4a'),
+			audio2 = new Audio('sounds/m4a/2.m4a'),
+			audio3 = new Audio('sounds/m4a/3.m4a'),
+			audio4 = new Audio('sounds/m4a/4.m4a'),
+			audio5 = new Audio('sounds/m4a/5.m4a'),
+			audio6 = new Audio('sounds/m4a/6.m4a'),
+			audio7 = new Audio('sounds/m4a/7.m4a'),
+			audio8 = new Audio('sounds/m4a/8.m4a'),
+			audio9 = new Audio('sounds/m4a/9.m4a'),
+			audio0 = new Audio('sounds/m4a/0.m4a'),
+			audioA = new Audio('sounds/m4a/a.m4a'),
+			audioB = new Audio('sounds/m4a/b.m4a'),
+			audioC = new Audio('sounds/m4a/c.m4a'),
+			audioD = new Audio('sounds/m4a/d.m4a'),
+			audioE = new Audio('sounds/m4a/e.m4a'),
+			audioF = new Audio('sounds/m4a/f.m4a'),
+			audioG = new Audio('sounds/m4a/g.m4a'),
+			audioH = new Audio('sounds/m4a/h.m4a'),
+			audioI = new Audio('sounds/m4a/i.m4a'),
+			audioJ = new Audio('sounds/m4a/j.m4a'),
+			audioK = new Audio('sounds/m4a/k.m4a'),
+			audioL = new Audio('sounds/m4a/l.m4a'),
+			audioM = new Audio('sounds/m4a/m.m4a'),
+			audioN = new Audio('sounds/m4a/n.m4a'),
+			audioO = new Audio('sounds/m4a/o.m4a'),
+			audioP = new Audio('sounds/m4a/p.m4a'),
+			audioQ = new Audio('sounds/m4a/q.m4a'),
+			audioR = new Audio('sounds/m4a/r.m4a'),
+			audioS = new Audio('sounds/m4a/s.m4a'),
+			audioT = new Audio('sounds/m4a/t.m4a'),
+			audioU = new Audio('sounds/m4a/u.m4a'),
+			audioV = new Audio('sounds/m4a/v.m4a'),
+			audioW = new Audio('sounds/m4a/w.m4a'),
+			audioX = new Audio('sounds/m4a/x.m4a'),
+			audioY = new Audio('sounds/m4a/y.m4a'),
+			audioZ = new Audio('sounds/m4a/z.m4a'),
 			prevSound = audioZ,
 			file = audioZ,
 			keypressed = "";
 
 	var action = function(audio, key){
-		$('body').find('#upper').find('h1').text(key);
-		$('body').find('#lower').find('h1').text(key.toLowerCase());
+		if ( isNaN(key) ) {
+			$('#numbers').hide();
+			$('#letters').show();
+			$('body').find('#upper').find('h1').text(key);
+			$('body').find('#lower').find('h1').text(key.toLowerCase());
+		} else {
+			$('#numbers').show();
+			$('#letters').hide();
+			$('body').find('#numbers').find('h1').text(key);
+		}
 		prevSound.pause();
 		prevSound.currentTime = 0;
 		audio.play();
