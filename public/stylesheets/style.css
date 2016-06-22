@@ -64,3 +64,13 @@ body {
    border-top-color: #5c1b1b;
    background: #5c1b1b;
    }
+
+#dance {
+	display: none;
+	position: fixed;
+	top: 0em;
+	left: 0em;
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+}

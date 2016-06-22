@@ -49,6 +49,7 @@ $(function(){
 			choice3 = "C",
 			random = 0,
 			answer = "";
+			audioCheer.volume = 0.4;
 
 	var randomLetter = function(){
 		var asciiCode = Math.floor(Math.random() * (90 - 65 + 1)) + 65;
@@ -61,6 +62,7 @@ $(function(){
 	};
 
 	var displayChoices = function(){
+		$(".card").fadeIn("fast");
 		choice1 = randomLetter();
 		$('body').find('#card1').text(choice1);
 
@@ -124,33 +126,24 @@ $(function(){
 	var checkAnswer = function(guess) {
 		if ( guess === answer ) {
 
+			audioCheer.currentTime = 0;
 			audioCheer.play();
-			for (var i = audioCheer.volume; i > 0; i = i - 0.0005) {
-				audioCheer.volume = i;
-			}
+			$("#dance").fadeIn(1500).delay(3000).fadeOut("fast", displayChoices);
+			$(".card").fadeOut(500).delay(3500);
 
 			random = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
 
 			switch(random) {
 				case 1:
 					audioWayToGo.play();
-					audioWayToGo.addEventListener("ended", function() {
-				    displayChoices();
-					});
 					break;
 
 				case 2:
 					audioThatsRight.play();
-					audioThatsRight.addEventListener("ended", function() {
-				    displayChoices();
-					});
 					break;
 
 				case 3:
 					audioNiceJob.play();
-					audioNiceJob.addEventListener("ended", function() {
-				    displayChoices();
-					});
 					break;
 
 				default:
